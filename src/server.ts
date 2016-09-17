@@ -1,45 +1,32 @@
 'use strict';
 
-const path = require('path');
-
+import path = require('path');
+import {wrapper} from './wrapper';
 import {
-    IPCMessageReader, IPCMessageWriter,
-	createConnection, IConnection,
-	Files, TextDocuments, TextDocument, Diagnostic, DiagnosticSeverity, 
-	InitializeParams, InitializeResult
+  IPCMessageReader, IPCMessageWriter,
+  createConnection, IConnection, TextDocuments
 } from 'vscode-languageserver';
 
-const wrapper = require('./wrapper');
-
-let configBasedir;
 let config;
-
-const connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
-const documents = new TextDocuments();
+let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
+let documents = new TextDocuments();
 
 function validate(document) {
   return wrapper({
     code: document.getText(),
-    codeFilename: Files.uriToFilePath(document.uri),
     config,
-    configBasedir,
-    syntax: 'css'
   }).then(diagnostics => {
-    connection.sendDiagnostics({uri: document.uri, diagnostics});
+    connection.sendDiagnostics({ uri: document.uri, diagnostics });
   }).catch(err => {
     connection.window.showErrorMessage(err.stack.replace(/\n/g, ' '));
   });
 }
 
 function validateAll() {
-  return Promise.all(documents.all().map(document => validate(document)));
+  return Promise.all(documents.all().map(doc => validate(doc)));
 }
 
 connection.onInitialize(params => {
-  if (params.rootPath) {
-    configBasedir = params.rootPath;
-  }
-
   validateAll();
 
   return {
@@ -49,14 +36,13 @@ connection.onInitialize(params => {
   };
 });
 connection.onDidChangeConfiguration(params => {
-  const settings = params.settings;
-  config = settings.csstree.config;
+  let settings = params.settings;
 
+  config = settings.csstree.config;
   validateAll();
 });
-connection.onDidChangeWatchedFiles(() => validateAll());
-
 documents.onDidChangeContent(event => validate(event.document));
+documents.onDidClose(e => connection.sendDiagnostics({ uri: e.document.uri, diagnostics: [] }));
 documents.listen(connection);
-
+connection.onDidChangeWatchedFiles(validateAll);
 connection.listen();

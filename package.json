@@ -1,8 +1,8 @@
 {
   "name": "vscode-csstree",
-  "displayName": "CSS Tree Validator",
-  "description": "CSS Tree lint plugin for VS Code",
-  "version": "0.0.2",
+  "displayName": "CSSTree validator",
+  "description": "CSS validator based on CSSTree as plugin for VSCode",
+  "version": "0.1.0",
   "publisher": "smelukov",
   "engines": {
     "vscode": "^1.4.0"
@@ -13,17 +13,17 @@
   "activationEvents": [
     "onLanguage:css"
   ],
-  "repository": "https://github.com/smelukov/vscode-csstree",
+  "repository": "https://github.com/csstree/vscode-csstree",
   "main": "./out/src/extension",
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "csstree configuration options",
+      "title": "CSSTree validtor configuration",
       "properties": {
         "csstree.enable": {
           "type": "boolean",
           "default": true,
-          "description": "csstree enabled or not for CSS files."
+          "description": "Enable CSSTree validation for CSS files."
         }
       }
     }
@@ -38,7 +38,7 @@
     "vscode": "^0.11.0"
   },
   "dependencies": {
-    "csstree-validator": "github:csstree/validator",
+    "csstree-validator": "^1.0.0",
     "vscode-languageclient": "^2.5.0",
     "vscode-languageserver": "^2.5.0"
   }

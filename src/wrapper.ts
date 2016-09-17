@@ -1,12 +1,9 @@
 'use strict';
 
-const csstreeValidator = require('csstree-validator');
-const langServer = require('vscode-languageserver');
-import {
-    DiagnosticSeverity
-} from 'vscode-languageserver';
+let csstreeValidator = require('csstree-validator');
+import { DiagnosticSeverity } from 'vscode-languageserver';
 
-module.exports = function csstreeVSCode(options) {
+export function wrapper(options) {
     let report = csstreeValidator.validateString(options.code);
     let diagnostics = [];
 
@@ -14,8 +11,8 @@ module.exports = function csstreeVSCode(options) {
 
     report.forEach(warning => {
         diagnostics.push({
-            message: `csstree: ${warning.message}`,
-            severity: DiagnosticSeverity.Error,
+            message: `[CSSTree] ${warning.message}`,
+            severity: DiagnosticSeverity.Warning,
             range: {
                 start: {
                     line: warning.line - 1,
