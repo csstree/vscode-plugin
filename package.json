@@ -2,7 +2,14 @@
   "name": "vscode-csstree",
   "displayName": "CSSTree validator",
   "description": "CSS validator based on CSSTree as plugin for VSCode",
-  "version": "0.1.0",
+  "version": "0.1.2",
+  "keywords": [
+    "css",
+    "csstree",
+    "lint",
+    "validator",
+    "w3c"
+  ],
   "publisher": "smelukov",
   "engines": {
     "vscode": "^1.4.0"
@@ -13,8 +20,16 @@
   "activationEvents": [
     "onLanguage:css"
   ],
+  "homepage": "https://github.com/csstree/vscode-csstree/blob/master/README.md",
   "repository": "https://github.com/csstree/vscode-csstree",
+  "bugs": {
+    "url": "https://github.com/csstree/vscode-csstree/issues"
+  },
   "main": "./out/src/extension",
+  "galleryBanner": {
+    "theme": "dark",
+    "color": "#333"
+  },
   "contributes": {
     "configuration": {
       "type": "object",
