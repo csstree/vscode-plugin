@@ -6,7 +6,7 @@ CSS validator based on [CSSTree](https://github.com/csstree/validator) as [plugi
 
 ### Validation
  Adds CSS values validationg according to W3C specs and browser implementations.
- <img width="512" src="https://cloud.githubusercontent.com/assets/6654581/18607828/d05318b0-7ce0-11e6-82bc-28c47964b9a4.png">
+ <img width="682" src="https://cloud.githubusercontent.com/assets/6654581/18788246/d0d4c7ca-81ae-11e6-9777-36806fd4cbfb.png">
 
 
 ## Extension Settings
