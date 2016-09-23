@@ -2,7 +2,7 @@
   "name": "vscode-csstree",
   "displayName": "CSSTree validator",
   "description": "CSS validator based on CSSTree as plugin for VSCode",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "keywords": [
     "css",
     "csstree",
@@ -10,6 +10,7 @@
     "validator",
     "w3c"
   ],
+  "license": "MIT",
   "publisher": "smelukov",
   "engines": {
     "vscode": "^1.4.0"
@@ -53,7 +54,7 @@
     "vscode": "^0.11.0"
   },
   "dependencies": {
-    "csstree-validator": "^1.0.0",
+    "csstree-validator": "1.0.3",
     "vscode-languageclient": "^2.5.0",
     "vscode-languageserver": "^2.5.0"
   }
