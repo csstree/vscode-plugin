@@ -6,7 +6,7 @@ Extension highlights wrong properties and values when enabled. Just install the 
 
 <img width="682" src="https://cloud.githubusercontent.com/assets/6654581/18788246/d0d4c7ca-81ae-11e6-9777-36806fd4cbfb.png">
 
-CSS validator based on [CSSTree](https://github.com/csstree/validator) as [plugin](https://atom.io/packages/csstree-validator) for VSCode.
+CSS validator based on [CSSTree](https://github.com/csstree/validator) as [plugin](https://marketplace.visualstudio.com/items?itemName=smelukov.vscode-csstree) for VSCode.
 
 ## Extension Settings
 
