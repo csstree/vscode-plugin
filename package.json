@@ -1,8 +1,8 @@
 {
   "name": "vscode-csstree",
   "displayName": "CSSTree validator",
-  "description": "CSS validator based on CSSTree as plugin for VSCode",
-  "version": "0.1.3",
+  "description": "Validate CSS according to W3C specs and browser implementations",
+  "version": "0.1.4",
   "keywords": [
     "css",
     "csstree",
@@ -21,11 +21,9 @@
   "activationEvents": [
     "onLanguage:css"
   ],
-  "homepage": "https://github.com/csstree/vscode-csstree/blob/master/README.md",
-  "repository": "https://github.com/csstree/vscode-csstree",
-  "bugs": {
-    "url": "https://github.com/csstree/vscode-csstree/issues"
-  },
+  "homepage": "https://github.com/csstree/vscode-plugin",
+  "repository": "https://github.com/csstree/vscode-plugin",
+  "bugs": "https://github.com/csstree/vscode-plugin/issues",
   "main": "./out/src/extension",
   "galleryBanner": {
     "theme": "dark",
