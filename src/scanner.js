@@ -25,12 +25,6 @@ var PLUSSIGN = TokenType.PlusSign;
 var HYPHENMINUS = TokenType.HyphenMinus;
 var E = 101; // 'e'.charCodeAt(0)
 
-var MIN_ARRAY_SIZE = 16 * 1024;
-var lastIndexOf = Array.prototype.lastIndexOf; // some browser implementations have no TypedArray#lastIndexOf
-var LongArray = typeof Uint32Array !== 'undefined' ? Uint32Array : Array;
-
-var lines = null;
-
 function isHex(code) {
     return (code >= 48 && code <= 57) || // 0 .. 9
         (code >= 65 && code <= 70) || // A .. F
