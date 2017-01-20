@@ -1,41 +1,32 @@
-## 0.1.6 - 2016-11-03
+## 0.1.7 (January 20, 2017)
 
-### Changed
+- Updated csstree-validator version to 1.0.8
+- Improved highlighting range calculation
+- Updated TypeScript version to 2.0.3
 
-- Updated csstree-validator version
+## 0.1.6 (November 03, 2016)
 
-## 0.1.5 - 2016-10-10
+- Updated csstree-validator version to 1.0.5
 
-### Fixed
+## 0.1.5 (October 10, 2016)
 
-- Readme
+- Fixed readme
 
-## 0.1.4 - 2016-10-10
+## 0.1.4 (October 10, 2016)
 
-### Changed
-
-- Updated csstree-validator version
-- More highlight accuracy    
+- Updated csstree-validator version to 1.0.4
+- Improved highlighting range calculation
 - Renamed repo
 
-## 0.1.3 - 2016-09-23
+## 0.1.3 (September 23, 2016)
 
-### Changed
+- Updated csstree-validator version to 1.0.3
 
-- Validator version
-
-## 0.1.0 - 2016-09-18
-
-### Changed
-
-- Code refactoring
-
-### Added
+## 0.1.0 (September 18, 2016)
 
 - Added `TextDocuments.onDidClose` support (#1)
+- Code refactoring
 
-## 0.0.0 - 2016-09-18
+## 0.0.0 (September 18, 2016)
 
-### Added
-
-- CSSTree validation
+- Initial release - base validation with csstree-validator 1.0.1
