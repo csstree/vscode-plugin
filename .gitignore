@@ -1,2 +1,5 @@
+.DS_Store
+*.lock
+*.log
 out
 node_modules

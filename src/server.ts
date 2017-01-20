@@ -1,7 +1,7 @@
 'use strict';
 
 import path = require('path');
-import {wrapper} from './wrapper';
+import { wrapper } from './wrapper';
 import {
   IPCMessageReader, IPCMessageWriter,
   createConnection, IConnection, TextDocuments

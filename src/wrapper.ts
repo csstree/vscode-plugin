@@ -1,43 +1,49 @@
 'use strict';
 
+import { Diagnostic, DiagnosticSeverity, TextDocument, Range, Position } from 'vscode-languageserver';
+
 let csstreeValidator = require('csstree-validator');
-let findEnd = require('./scanner.js').findEnd;
-import { DiagnosticSeverity, TextDocument, Position } from 'vscode-languageserver';
+const TYPE_WARNING = 'Warning';
+const TYPE_ERROR = 'Error';
+const SEVERITY_WARNING = 'warning';
+const SEVERITY_ERROR = 'error';
 
 export function wrapper(options) {
-    let report = csstreeValidator.validateString(options.code);
-    let diagnostics = [];
+  let report = csstreeValidator.validateString(options.code);
+  let diagnostics:Diagnostic[] = [];
 
-    report = Object.keys(report).reduce((r, c) => r.concat(report[c]), []);
+  report = Object.keys(report).reduce((r, c) => r.concat(report[c]), []);
 
-    report.forEach(warning => {
-        let line = warning.line - 1;
-        let column = warning.column - 1
-        let doc: TextDocument = options.document;
-        let offset = doc.offsetAt(Position.create(line, column));
-        let endPos: Position;
+  report.forEach(warning => {
+    let doc: TextDocument = options.document;
+    let range: Range = {
+      start: { line: 0, character: 0 },
+      end: { line: 0, character: 0 }
+    };
+    let severity: DiagnosticSeverity = DiagnosticSeverity.Warning;
 
-        if (!warning.message.indexOf('Unknown property')) {
-            endPos = Position.create(line, column + warning.property.length);
-        } else {
-            endPos = doc.positionAt(findEnd(doc.getText(), offset));
-        }
+    range.start = { line: warning.line - 1, character: warning.column - 1 };
 
-        diagnostics.push({
-            message: `[CSSTree] ${warning.message}`,
-            severity: DiagnosticSeverity.Warning,
-            range: {
-                start: {
-                    line: line,
-                    character: column
-                },
-                end: {
-                    line: endPos.line,
-                    character: endPos.character
-                }
-            }
-        });
+    if (warning.loc) {
+      let endLine = warning.loc.end.line - 1;
+      let endColumn = warning.loc.end.column - 1;
+
+      if (!warning.message.indexOf('Unknown property')) {
+        range.end = { line: range.start.line, character: range.start.character + warning.property.length };
+      } else {
+        range.end = { line: endLine, character: endColumn };
+      }
+    } else {
+      severity = DiagnosticSeverity.Error;
+      range.end = { line: range.start.line, character: range.start.character + 1 };
+    }
+
+    diagnostics.push({  
+      range,
+      severity,
+      message: `[CSSTree] ${warning.message}`
     });
+  });
 
-    return Promise.resolve(diagnostics);
+  return Promise.resolve(diagnostics);
 };
