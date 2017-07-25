@@ -1,3 +1,9 @@
+## 0.2.0 (July 26, 2017)
+
+- Pinned css-tree version to 1.0.0-alpha19
+- Improved accuracy and fixed edge-cases
+- Updated TypeScript version to 2.4
+
 ## 0.1.7 (January 20, 2017)
 
 - Updated csstree-validator version to 1.0.8
