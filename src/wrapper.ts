@@ -3,18 +3,14 @@
 import { Diagnostic, DiagnosticSeverity, TextDocument, Range, Position } from 'vscode-languageserver';
 
 let csstreeValidator = require('csstree-validator');
-const TYPE_WARNING = 'Warning';
-const TYPE_ERROR = 'Error';
-const SEVERITY_WARNING = 'warning';
-const SEVERITY_ERROR = 'error';
 
 export function wrapper(options) {
   let report = csstreeValidator.validateString(options.code);
-  let diagnostics:Diagnostic[] = [];
+  let diagnostics: Diagnostic[] = [];
 
   report = Object.keys(report).reduce((r, c) => r.concat(report[c]), []);
 
-  report.forEach(warning => {
+  report.forEach(({ line, column, loc, node, message, property }) => {
     let doc: TextDocument = options.document;
     let range: Range = {
       start: { line: 0, character: 0 },
@@ -22,26 +18,30 @@ export function wrapper(options) {
     };
     let severity: DiagnosticSeverity = DiagnosticSeverity.Warning;
 
-    range.start = { line: warning.line - 1, character: warning.column - 1 };
+    if (loc && loc.start && loc.end) {
+      range.start = { line: line - 1, character: column - 1 };
 
-    if (warning.loc) {
-      let endLine = warning.loc.end.line - 1;
-      let endColumn = warning.loc.end.column - 1;
-
-      if (!warning.message.indexOf('Unknown property')) {
-        range.end = { line: range.start.line, character: range.start.character + warning.property.length };
+      if (!message.indexOf('Unknown property')) {
+        range.end = { line: range.start.line, character: range.start.character + property.length };
       } else {
-        range.end = { line: endLine, character: endColumn };
+        range.end = { line: loc.end.line - 1, character: loc.end.column - 1 };
       }
     } else {
       severity = DiagnosticSeverity.Error;
-      range.end = { line: range.start.line, character: range.start.character + 1 };
+
+      if (node) {
+        range.start = { line: node.loc.start.line - 1, character: node.loc.start.column - 1 };
+        range.end = { line: node.loc.end.line - 1, character: node.loc.end.column - 1 };
+      } else {
+        range.start = { line: line - 1, character: column - 1 };
+        range.end = { line: line - 1, character: column };
+      }
     }
 
-    diagnostics.push({  
+    diagnostics.push({
       range,
       severity,
-      message: `[CSSTree] ${warning.message}`
+      message: `[CSSTree] ${message}`
     });
   });
 

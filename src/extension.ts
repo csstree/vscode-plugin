@@ -1,7 +1,6 @@
 'use strict';
 
 import path = require('path');
-import vscode = require('vscode');
 import { LanguageClient, SettingMonitor, TransportKind } from 'vscode-languageclient';
 
 exports.activate = function activate(context) {
