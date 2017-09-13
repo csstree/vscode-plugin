@@ -1,3 +1,7 @@
+## 0.3.0 (September 14, 2017)
+
+- Bumped csstree-validator version to 1.2.0 (supports tolerance parsing mode)
+
 ## 0.2.0 (July 26, 2017)
 
 - Pinned css-tree version to 1.0.0-alpha19
