@@ -56,7 +56,7 @@
     "vscode": "^1.0.0"
   },
   "dependencies": {
-    "csstree-validator": "^1.2.2",
+    "csstree-validator": "~1.3.0",
     "vscode-languageclient": "~2.6.0",
     "vscode-languageserver": "~2.6.0"
   }
