@@ -1,3 +1,7 @@
+## 0.6.0 (February 20, 2018)
+
+- Bumped csstree-validator version to 1.3.1
+
 ## 0.5.0 (November 12, 2017)
 
 - Bumped csstree-validator version to 1.2.2 (enhanced tolerance parsing mode)
