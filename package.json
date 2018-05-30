@@ -53,10 +53,10 @@
   "devDependencies": {
     "@types/node": "^6.0.40",
     "typescript": "^2.4.2",
-    "vscode": "^1.0.0"
+    "vscode": "^1.1.18"
   },
   "dependencies": {
-    "csstree-validator": "~1.3.0",
+    "csstree-validator": "~1.4.0",
     "vscode-languageclient": "~2.6.0",
     "vscode-languageserver": "~2.6.0"
   }
