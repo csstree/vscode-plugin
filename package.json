@@ -1,63 +1,18 @@
 {
-  "name": "vscode-csstree",
-  "displayName": "CSSTree validator",
-  "description": "Validate CSS according to W3C specs and browser implementations",
-  "version": "0.7.0",
-  "keywords": [
-    "css",
-    "csstree",
-    "lint",
-    "validator",
-    "w3c"
-  ],
-  "contributors": [
-    "Sergey Melyukov <s.melukov@gmail.com>"
-  ],
-  "license": "MIT",
-  "publisher": "smelukov",
-  "engines": {
-    "vscode": "^1.4.0"
-  },
-  "categories": [
-    "Linters"
-  ],
-  "activationEvents": [
-    "onLanguage:css"
-  ],
-  "homepage": "https://github.com/csstree/vscode-plugin",
-  "repository": "https://github.com/csstree/vscode-plugin",
-  "bugs": "https://github.com/csstree/vscode-plugin/issues",
-  "main": "./out/src/extension",
-  "galleryBanner": {
-    "theme": "dark",
-    "color": "#333"
-  },
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "CSSTree validtor configuration",
-      "properties": {
-        "csstree.enable": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable CSSTree validation for CSS files."
-        }
-      }
+    "name": "vscode-csstree",
+    "description": "Validate CSS according to W3C specs and browser implementations",
+    "license": "MIT",
+    "version": "0.0.1",
+    "contributors": [
+        "Sergey Melyukov <s.melukov@gmail.com>"
+    ],
+    "repository": "https://github.com/csstree/vscode-plugin",
+    "scripts": {
+        "postinstall": "cd server && npm install && cd ../client && npm install && cd ..",
+        "compile": "tsc -p client/tsconfig.json && cd server && npm run installServer && cd .. && tsc -p server/tsconfig.json",
+        "compile:client": "tsc -p client/tsconfig.json",
+        "watch:client": "tsc -w -p client/tsconfig.json",
+        "compile:server": "cd server && npm run installServer && cd .. && tsc -p server/tsconfig.json",
+        "watch:server": "cd server && npm run installServer && cd .. && tsc -w -p server/tsconfig.json"
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "tsc -p ./",
-    "compile": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install"
-  },
-  "devDependencies": {
-    "@types/node": "^6.0.40",
-    "typescript": "^2.4.2",
-    "vscode": "^1.1.18"
-  },
-  "dependencies": {
-    "csstree-validator": "~1.4.0",
-    "vscode-languageclient": "~2.6.0",
-    "vscode-languageserver": "~2.6.0"
-  }
 }

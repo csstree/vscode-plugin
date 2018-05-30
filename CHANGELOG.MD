@@ -1,3 +1,7 @@
+## next
+
+- Refactoring
+
 ## 0.7.0 (May 31, 2018)
 
 - Bumped csstree-validator version to 1.4.0

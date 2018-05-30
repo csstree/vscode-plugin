@@ -1,0 +1,22 @@
+{
+    "name": "vscode-csstree",
+    "description": "CSSTree validator language server",
+    "version": "0.0.1",
+    "license": "MIT",
+    "contributors": [
+        "Sergey Melyukov <s.melukov@gmail.com>"
+    ],
+    "repository": "https://github.com/csstree/vscode-plugin",
+    "engines": {
+        "node": "*"
+    },
+    "dependencies": {
+        "csstree-validator": "^1.3.1",
+        "vscode-languageserver": "^4.1.2"
+    },
+    "scripts": {
+        "installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json",
+        "compile": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
+        "watch": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -w -p ."
+    }
+}
