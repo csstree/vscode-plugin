@@ -2,7 +2,7 @@
   "name": "vscode-csstree",
   "displayName": "CSSTree validator",
   "description": "Validate CSS according to W3C specs and browser implementations",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "keywords": [
     "css",
     "csstree",
@@ -56,7 +56,7 @@
     "vscode": "^1.1.18"
   },
   "dependencies": {
-    "csstree-validator": "~1.4.0",
+    "csstree-validator": "~1.5.1",
     "vscode-languageclient": "~2.6.0",
     "vscode-languageserver": "~2.6.0"
   }
