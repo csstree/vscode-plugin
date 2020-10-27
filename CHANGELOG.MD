@@ -1,3 +1,7 @@
+## 1.0.0 (October 27, 2020)
+
+- Bumped csstree-validator version to 1.6.0 (usees css-tree 1.0)
+
 ## 0.8.0 (October 23, 2019)
 
 - Bumped csstree-validator version to 1.5.1
