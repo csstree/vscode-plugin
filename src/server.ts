@@ -14,8 +14,6 @@ let documents = new TextDocuments();
 function validate(document) {
   return wrapper({
     code: document.getText(),
-    document,
-    config,
   }).then(diagnostics => {
     connection.sendDiagnostics({ uri: document.uri, diagnostics });
   }).catch(err => {
