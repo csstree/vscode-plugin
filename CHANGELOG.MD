@@ -1,6 +1,11 @@
+## 1.1.0 (November 18, 2020)
+
+- Bumped csstree-validator version to 2.0.0 (css-tree 1.1.1)
+- Added validation for at-rules: prelude and descriptors
+
 ## 1.0.0 (October 27, 2020)
 
-- Bumped csstree-validator version to 1.6.0 (usees css-tree 1.0)
+- Bumped csstree-validator version to 1.6.0 (css-tree 1.0)
 
 ## 0.8.0 (October 23, 2019)
 
