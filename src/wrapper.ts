@@ -4,10 +4,9 @@ import { Diagnostic, DiagnosticSeverity, Range } from 'vscode-languageserver';
 let { validate } = require('csstree-validator/lib/validate');
 
 export function wrapper({ code }) {
-  let errors = validate(code);
   let diagnostics: Diagnostic[] = [];
 
-  errors.forEach(({ line, column, loc, message }) => {
+  for (const { line, column, loc, message } of validate(code)) {
     let severity: DiagnosticSeverity = DiagnosticSeverity.Warning;
     let range: Range;
 
@@ -29,7 +28,7 @@ export function wrapper({ code }) {
       severity,
       message: `[CSSTree] ${message}`
     });
-  });
+  }
 
   return Promise.resolve(diagnostics);
 };
