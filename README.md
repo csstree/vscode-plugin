@@ -1,22 +1,29 @@
-# vscode-csstree
+# VSCode CSSTree Validator
 
-Validate CSS according to W3C specs and browser implementations.
+An extension for Visual Studio Code that validates CSS according to W3C specifications and browser implementations.
 
-Extension highlights wrong properties and values when enabled. Just install the extension and open your CSS file. Validation will be performing in background.
+[**View on Visual Studio Marketplace**](https://marketplace.visualstudio.com/items?itemName=smelukov.vscode-csstree)
 
-<img width="682" src="https://cloud.githubusercontent.com/assets/6654581/18788246/d0d4c7ca-81ae-11e6-9777-36806fd4cbfb.png">
+This extension highlights incorrect at-rules, properties, and values in your CSS files. It utilizes the [CSSTree](https://github.com/csstree/validator) capabilities to analyze CSS syntax and report any issues.
 
-CSS validator based on [CSSTree](https://github.com/csstree/validator) as [plugin](https://marketplace.visualstudio.com/items?itemName=smelukov.vscode-csstree) for VSCode.
+> **Note:** If you encounter false positives or false negatives—such as unknown properties being flagged or invalid values not being detected—please report these issues on the [CSSTree issue tracker](https://github.com/csstree/csstree/issues).
+
+> **Note:** Currently, CSSTree does not support selector syntax matching. As a result, this extension does not validate selectors. Selector validation will be added once it becomes available in CSSTree ([see issue #34](https://github.com/csstree/csstree/issues/34)).
+
+![Example](https://github.com/user-attachments/assets/ed92da31-054c-4332-b548-31f2ce427e66)
 
 ## Extension Settings
 
-* `csstree.enable`: enable/disable this extension
+- `csstree.enable`: Enable or disable the CSSTree validator extension.
 
-## Other
+## Troubleshooting
 
-If you want to disable VSCode's internal CSS linting then just add
+To prevent overlapping warnings with VSCode's default CSS linting, you can disable the built-in linter by adding the following setting to your configuration:
 
 ```json
 "css.validate": false
 ```
-to your preferences.
+
+## License
+
+MIT
