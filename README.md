@@ -1,8 +1,8 @@
 # VSCode CSSTree Validator
 
-An extension for Visual Studio Code that validates CSS according to W3C specifications and browser implementations.
+<a href="https://marketplace.visualstudio.com/items?itemName=smelukov.vscode-csstree" target="__blank"><img src="https://img.shields.io/visual-studio-marketplace/v/smelukov.vscode-csstree.svg?label=VSCode%20Marketplace" alt="Visual Studio Marketplace Version" /></a>
 
-[**View on Visual Studio Marketplace**](https://marketplace.visualstudio.com/items?itemName=smelukov.vscode-csstree)
+An extension for Visual Studio Code that validates CSS according to W3C specifications and browser implementations.
 
 This extension highlights incorrect at-rules, properties, and values in your CSS files. It utilizes the [CSSTree](https://github.com/csstree/validator) capabilities to analyze CSS syntax and report any issues.
 
