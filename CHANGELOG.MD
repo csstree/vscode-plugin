@@ -1,5 +1,6 @@
-## next
+## 1.2.0 (October 11, 2022)
 
+- Enhanced the highlighting for warnings, such as unknown property, descriptor, or at-rule, to emphasize the entire identifier instead of just a single character
 - Bumped csstree-validator version to 4.0.1 (css-tree 3.0.0)
     - Added support for the `@container`, `@starting-style`, `@scope`, `@position-try` and `@layer` at-rules
     - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule

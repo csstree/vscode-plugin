@@ -25,7 +25,7 @@ export function wrapper({ code }) {
       range,
       severity,
       message: `${message}`,
-      source: 'csstree-validator'
+      source: 'csstree'
     });
   }
 
