@@ -1,24 +1,23 @@
-'use strict';
-
-import path = require('path');
-import { wrapper } from './wrapper';
+import { wrapper } from './wrapper.js';
 import {
   IPCMessageReader, IPCMessageWriter,
-  createConnection, IConnection, TextDocuments
+  createConnection, IConnection, TextDocuments,
+  TextDocument
 } from 'vscode-languageserver';
 
 let config;
 let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
 let documents = new TextDocuments();
 
-function validate(document) {
-  return wrapper({
-    code: document.getText(),
-  }).then(diagnostics => {
+async function validate(document: TextDocument) {
+  try {
+    const diagnostics = await wrapper({
+      code: document.getText(),
+    });
     connection.sendDiagnostics({ uri: document.uri, diagnostics });
-  }).catch(err => {
+  } catch (err) {
     connection.window.showErrorMessage(err.stack.replace(/\n/g, ' '));
-  });
+  }
 }
 
 function validateAll() {

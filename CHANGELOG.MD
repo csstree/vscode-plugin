@@ -1,3 +1,16 @@
+## next
+
+- Bumped csstree-validator version to 4.0.1 (css-tree 3.0.0)
+    - Added support for the `@container`, `@starting-style`, `@scope`, `@position-try` and `@layer` at-rules
+    - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule
+    - Added CSS Nesting support (requires `@nest` or `&` selector, relaxed syntax is not supported yet)
+    - Added support for CSS wide keywords `revert` and `revert-layer`
+    - Added new units according to current state of CSS Values and Units 4: `rex`, `cap`, `rcap`, `rch`, `ic`, `ric`, `lh`, `rlh`, `vi`, `vb`, `sv*`, `lv*`, `dv*`
+    - Added container relative length units from CSS Containment 3: `cqw`, `cqh`, `cqi`, `cqb`, `cqmin`, `cqmax`
+    - Aligned `<'font'>` to CSS Fonts 4
+    - Aligned `<color>` to CSS Color 5
+    - Many new CSS properties and fixes in syntaxes
+
 ## 1.1.0 (November 18, 2020)
 
 - Bumped csstree-validator version to 2.0.0 (css-tree 1.1.1)

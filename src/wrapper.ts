@@ -1,7 +1,5 @@
-'use strict';
-
 import { Diagnostic, DiagnosticSeverity, Range } from 'vscode-languageserver';
-let { validate } = require('csstree-validator/lib/validate');
+import { validate } from 'csstree-validator';
 
 export function wrapper({ code }) {
   let diagnostics: Diagnostic[] = [];
@@ -26,7 +24,8 @@ export function wrapper({ code }) {
     diagnostics.push({
       range,
       severity,
-      message: `[CSSTree] ${message}`
+      message: `${message}`,
+      source: 'csstree-validator'
     });
   }
 

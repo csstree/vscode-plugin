@@ -1,5 +1,3 @@
-'use strict';
-
 import path = require('path');
 import { LanguageClient, SettingMonitor, TransportKind } from 'vscode-languageclient';
 
