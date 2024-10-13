@@ -19,7 +19,8 @@
     "vscode": "^1.4.0"
   },
   "categories": [
-    "Linters"
+    "Linters",
+    "Programming Languages"
   ],
   "activationEvents": [
     "onLanguage:css"
@@ -27,7 +28,7 @@
   "homepage": "https://github.com/csstree/vscode-plugin",
   "repository": "https://github.com/csstree/vscode-plugin",
   "bugs": "https://github.com/csstree/vscode-plugin/issues",
-  "main": "./out/src/extension",
+  "main": "./out/src/extension.js",
   "galleryBanner": {
     "theme": "dark",
     "color": "#333"
