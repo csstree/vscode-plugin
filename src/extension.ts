@@ -27,4 +27,3 @@ export function activate(context) {
 
   context.subscriptions.push(new SettingMonitor(client, 'csstree.enable').start());
 };
-console.log('?!')
