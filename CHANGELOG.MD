@@ -1,3 +1,7 @@
+## 1.2.1 (October 14, 2022)
+
+- Fixed missed dependencies in the extension bundle
+
 ## 1.2.0 (October 11, 2022)
 
 - Enhanced the highlighting for warnings, such as unknown property, descriptor, or at-rule, to emphasize the entire identifier instead of just a single character
