@@ -49,6 +49,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit src/*",
     "watch": "tsc -watch -p ./",
+    "compile": "tsc -p ./",
     "vscode:prepublish": "tsc -p ./"
   },
   "devDependencies": {
