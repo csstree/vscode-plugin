@@ -1,7 +1,7 @@
 import path = require('path');
 import { LanguageClient, SettingMonitor, TransportKind } from 'vscode-languageclient';
 
-exports.activate = function activate(context) {
+export function activate(context) {
   let serverModule = path.join(__dirname, 'server.js');
   let client = new LanguageClient('csstree',
     {
@@ -27,3 +27,4 @@ exports.activate = function activate(context) {
 
   context.subscriptions.push(new SettingMonitor(client, 'csstree.enable').start());
 };
+console.log('?!')
